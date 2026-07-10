@@ -46,16 +46,11 @@
             mods = <(MOD_LSFT | MOD_RSFT)>;
         };
 
-        /* Single-key window switcher: hold GUI, tap Tab, release GUI */
+        /* Single-key window switcher: hold GUI, tap Tab, release on layer exit/other key */
         sw_win: sw_win {
-            compatible = "zmk,behavior-macro";
+            compatible = "zmk,behavior-smart-toggle";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LGUI>
-                , <&macro_tap &kp TAB>
-                , <&macro_pause_for_release>
-                , <&macro_release &kp LGUI>
-                ;
+            bindings = <&kp LGUI>, <&kp TAB>;
         };
     };
 
