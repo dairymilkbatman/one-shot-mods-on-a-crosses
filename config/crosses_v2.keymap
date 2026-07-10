@@ -19,6 +19,7 @@
 };
 
 / {
+    chosen { zmk,physical-layout = &gggw_crosses_36_layout; };
     behaviors {
         /* Option A: Press SYM thumb key while Shift is held to activate NUM */
         sym_num: sym_num {
@@ -75,7 +76,7 @@
             bindings = <
                 &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT   &kp GRAVE   &kp EQUAL   &kp COLON   &kp SEMI    &kp PLUS
                 &kp LSHIFT  &kp LCTRL   &kp LALT    &kp LGUI    &kp CARET   &kp MINUS   &kp LPAR    &kp LBRC    &kp LBKT    &kp ASTRK
-                &kp LT      &kp PIPE    &kp BSLH    &kp GT      &kp AMPS    &kp UNDERSCORE  &trans          &trans      &kp RPAR    &kp RBRC    &kp RBKT    &kp TILDE
+                &kp LT      &kp PIPE    &kp BSLH    &kp GT      &kp AMPS    &kp UNDERSCORE  &kp RPAR    &kp RBRC    &kp RBKT    &kp TILDE
                                         &trans      &trans      &trans      &kp RET         &trans          &trans
             >;
         };
@@ -84,7 +85,7 @@
             bindings = <
                 &kp C_PREV  &kp C_STOP  &kp C_PP    &kp C_NEXT  &kp C_BRI_UP &kp F12     &kp F7      &kp F8      &kp F9      &rgb_ug RGB_TOG
                 &kp LSHIFT  &kp LCTRL   &kp LALT    &kp LGUI    &kp C_BRI_DN &kp F11     &kp F4      &kp F5      &kp F6      &trans
-                &kp C_MUTE  &kp C_VOL_DN &kp LG(LS(C)) &kp C_VOL_UP &kp LG(LS(V)) &kp F10   &kp F1          &kp F2      &kp F3      &trans      &trans      &trans
+                &kp C_MUTE  &kp C_VOL_DN &kp LG(LS(C)) &kp C_VOL_UP &kp LG(LS(V)) &kp F10   &kp F1          &kp F2      &kp F3      &trans
                                         &trans      &trans      &trans      &kp RET         &trans          &trans
             >;
         };
