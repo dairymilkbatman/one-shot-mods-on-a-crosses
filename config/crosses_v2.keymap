@@ -11,6 +11,22 @@
 #define FUN 3
 #define NUM 4
 
+/*
+* ┌───┬───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┬───┐
+* │ Q │ W │ F │ P │ B │   │       │ J │ L │ U │ Y │ ' │   │
+* ├───┼───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┼───┤
+* | A │ R │ S │ T │ G │   │       │ M │ N │ E │ I │ O │   │
+* ├───┼───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┼───┤
+* │ Z │ X │ C │ D │ V │   │       │ K │ H │ , │ . │ / │   │
+* └───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┘
+*               ┌─── ┐                        ┌─── ┐
+*               │ ESC├─ ──┐              ┌ ───┤BSPC│
+*               └─── ┤NAV ├─ ──┐   ┌─  ──┤ SYM├─── ┘
+*                    └─ ──┤ SFT│   │SPACE├ ───┘
+*                         └─ ──┘   └─  ──┘
+*
+*/
+
 /* Configure sticky keys (one-shot mods) */
 &sk {
     release-after-ms = <30000>;
@@ -54,6 +70,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "Colemak-DH";
             bindings = <
                 &kp Q       &kp W       &kp F       &kp P       &kp B       &kp J       &kp L       &kp U       &kp Y       &kp SQT
                 &kp A       &kp R       &kp S       &kp T       &kp G       &kp M       &kp N       &kp E       &kp I       &kp O
@@ -63,38 +80,52 @@
         };
 
         nav_layer {
+            display-name = "Nav";
             bindings = <
-                &kp ESC     &sw_win     &kp LG(LS(LBKT)) &kp LG(LS(RBKT)) &caps_word  &kp PG_UP   &kp HOME    &kp UP      &kp END     &kp CAPSLOCK
-                &sk LSHIFT  &sk LCTRL   &sk LALT    &sk LGUI    &kp RALT    &kp PG_DN   &kp LEFT    &kp DOWN    &kp RIGHT   &kp DEL
-                &kp K_UNDO  &kp K_COPY  &kp K_CUT   &kp RGUI    &kp K_PASTE &kp INSERT  &kp BSPC    &kp TAB     &kp K_CMENU &kp PSCRN
-                                        &kp ESC     &trans      &trans      &kp RET         &key_repeat     &trans
+                &kp ESC     &sw_win     &kp LG(LS(LBKT)) &kp LG(LS(RBKT)) &caps_word     &kp PG_UP   &kp HOME     &kp UP      &kp END     &kp CAPSLOCK
+                &sk LSHIFT  &sk LCTRL   &sk LALT         &sk LGUI         &kp RALT       &kp PG_DN   &kp LEFT     &kp DOWN    &kp RIGHT   &kp DEL
+                &kp K_UNDO  &kp K_COPY  &kp K_CUT        &kp RGUI         &kp K_PASTE    &kp INSERT  &kp BSPC     &kp TAB     &kp K_CMENU &kp PSCR
+                                        &kp ESC          &trans           &trans         &kp RET     &key_repeat  &trans
             >;
         };
 
         sym_layer {
+            display-name = "Sym";
             bindings = <
-                &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT   &kp GRAVE   &kp EQUAL   &kp COLON   &kp SEMI    &kp PLUS
-                &kp LSHIFT  &kp LCTRL   &kp LALT    &kp LGUI    &kp CARET   &kp MINUS   &kp LPAR    &kp LBRC    &kp LBKT    &kp ASTRK
-                &kp LT      &kp PIPE    &kp BSLH    &kp GT      &kp AMPS    &kp UNDERSCORE  &kp RPAR    &kp RBRC    &kp RBKT    &kp TILDE
-                                        &trans      &trans      &trans      &kp RET         &trans          &trans
+                &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT      &kp GRAVE       &kp EQUAL   &kp COLON   &kp SEMI    &kp PLUS
+                &kp LSHIFT  &kp LCTRL   &kp LALT    &kp LGUI    &kp CARET      &kp MINUS       &kp LPAR    &kp LBRC    &kp LBKT    &kp ASTRK
+                &kp LT      &kp PIPE    &kp BSLH    &kp GT      &kp AMPS       &kp UNDERSCORE  &kp RPAR    &kp RBRC    &kp RBKT    &kp TILDE
+                                        &trans      &trans      &trans         &kp RET         &trans      &trans
             >;
         };
 
         fun_layer {
+            display-name = "Fun";
             bindings = <
-                &kp C_PREV  &kp C_STOP  &kp C_PP    &kp C_NEXT  &kp C_BRI_UP &kp F12     &kp F7      &kp F8      &kp F9      &studio_unlock
-                &kp LSHIFT  &kp LCTRL   &kp LALT    &kp LGUI    &kp C_BRI_DN &kp F11     &kp F4      &kp F5      &kp F6      &trans
-                &kp C_MUTE  &kp C_VOL_DN &kp LG(LS(C)) &kp C_VOL_UP &kp LG(LS(V)) &kp F10   &kp F1          &kp F2      &kp F3      &trans
-                                        &trans      &trans      &trans      &kp RET         &trans          &trans
+                &kp C_PREV  &kp C_STOP   &kp C_PP      &kp C_NEXT   &kp C_BRI_UP      &kp F12     &kp F7      &kp F8      &kp F9      &studio_unlock
+                &kp LSHIFT  &kp LCTRL    &kp LALT      &kp LGUI     &kp C_BRI_DN      &kp F11     &kp F4      &kp F5      &kp F6      &trans
+                &kp C_MUTE  &kp C_VOL_DN &kp LG(LS(C)) &kp C_VOL_UP &kp LG(LS(V))     &kp F10     &kp F1      &kp F2      &kp F3      &trans
+                                            &trans      &trans      &trans            &kp RET     &tran       &trans
             >;
         };
 
         num_layer {
+            display-name = "Num";
             bindings = <
-                &kp KP_EQUAL &kp KP_N7  &kp KP_N8   &kp KP_N9   &kp KP_PLUS  &kp KP_NUMLOCK &trans   &trans      &trans      &bootloader
-                &kp KP_MULTIPLY &kp KP_N4 &kp KP_N5 &kp KP_N6   &kp KP_MINUS &kp RALT    &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHIFT
-                &kp KP_N0   &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_DIVIDE &kp BSPC    &kp TAB     &kp DOT     &kp K_CMENU &trans
-                                        &trans      &trans      &trans      &kp RET         &trans          &trans
+                &kp KP_EQUAL    &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_PLUS        &kp KP_NUMLOCK &trans      &trans      &trans      &bootloader
+                &kp KP_MULTIPLY &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_MINUS       &kp RALT       &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHIFT
+                &kp KP_N0       &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_DIVIDE      &kp BSPC       &kp TAB     &kp DOT     &kp K_CMENU &trans
+                                            &trans      &trans      &trans             &kp RET        &trans      &trans
+            >;
+        };
+
+        mouse_layer {
+            display-name = "Mouse";
+            bindings = <
+              &dpi_cycle_left 1  &pipe_switch  &trans     &trans     &trans       &studio_unlock  &trans  &trans  &trans  &dpi_cycle_right 1
+              &trans             &mkp RCLK     &mkp MCLK  &mkp LCLK  &trans       &trans          &trans  &trans  &trans  &trans
+              &trans             &trans        &trans     &trans     &trans       &trans          &trans  &trans  &trans  &trans
+                                               &trans     &trans     &trans       &trans          &trans  &trans
             >;
         };
     };
