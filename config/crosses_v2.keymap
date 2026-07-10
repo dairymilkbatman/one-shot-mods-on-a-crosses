@@ -84,7 +84,7 @@
             bindings = <
                 &kp ESC     &sw_win     &kp LG(LS(LBKT)) &kp LG(LS(RBKT)) &caps_word     &kp PG_UP   &kp HOME     &kp UP      &kp END     &kp CAPSLOCK
                 &sk LSHIFT  &sk LCTRL   &sk LALT         &sk LGUI         &kp RALT       &kp PG_DN   &kp LEFT     &kp DOWN    &kp RIGHT   &kp DEL
-                &kp K_UNDO  &kp K_COPY  &kp K_CUT        &kp RGUI         &kp K_PASTE    &kp INSERT  &kp BSPC     &kp TAB     &kp K_CMENU &kp PSCR
+                &kp K_UNDO  &kp K_COPY  &kp K_CUT        &kp RGUI         &kp K_PASTE    &kp INSERT  &kp BSPC     &kp TAB     &kp K_CMENU &kp PSCRN
                                         &kp ESC          &trans           &trans         &kp RET     &key_repeat  &trans
             >;
         };
