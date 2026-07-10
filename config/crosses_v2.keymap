@@ -31,7 +31,6 @@
 
         /* Single-key window switcher: hold GUI, tap Tab, release GUI */
         sw_win: sw_win {
-            label = "SW_WIN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
