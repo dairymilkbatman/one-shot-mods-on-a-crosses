@@ -21,7 +21,7 @@
 * │ Z │ X │ C │ D │ V │   │       │ K │ H │ , │ . │ / │   │
 * └───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┘
 *               ┌─── ┐                        ┌─── ┐
-*               │ ESC├─ ──┐              ┌ ───┤BSPC│
+*               │ ESC├─ ──┐              ┌ ───┤MOUS│
 *               └─── ┤NAV ├─ ──┐   ┌─  ──┤ SYM├─── ┘
 *                    └─ ──┤ SFT│   │SPACE├ ───┘
 *                         └─ ──┘   └─  ──┘
@@ -38,7 +38,7 @@
 / {
     chosen { zmk,physical-layout = &gggw_crosses_36_layout; };
     behaviors {
-        /* Option A: Press SYM thumb key while Shift is held to activate NUM */
+        /* Press SYM thumb key while Shift is held to activate NUM */
         sym_num: sym_num {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -118,10 +118,10 @@
         mouse_layer {
             display-name = "Mouse";
             bindings = <
-              &dpi_cycle_left 1  &pipe_switch  &trans     &trans     &trans       &studio_unlock  &trans  &trans  &trans  &dpi_cycle_right 1
-              &trans             &mkp RCLK     &mkp MCLK  &mkp LCLK  &trans       &trans          &trans  &trans  &trans  &trans
-              &trans             &trans        &trans     &trans     &trans       &trans          &trans  &trans  &trans  &trans
-                                               &trans     &trans     &trans       &trans          &trans  &trans
+              &dpi_cycle_left 1  &pipe_switch  &trans     &trans     &trans       &studio_unlock  &trans    &trans    &trans     &dpi_cycle_right 1
+              &trans             &mkp RCLK     &mkp MCLK  &mkp LCLK  &trans       &trans          &mkp RCLK &mkp MCLK &mkp lCLK  &trans
+              &trans             &trans        &trans     &trans     &trans       &trans          &trans    &trans    &trans     &trans
+                                               &trans     &trans     &trans       &trans          &trans    &trans
             >;
         };
     };
