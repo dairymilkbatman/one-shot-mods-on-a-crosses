@@ -108,7 +108,7 @@
         num_layer {
             display-name = "Num";
             bindings = <
-                &kp KP_EQUAL    &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_PLUS        &kp KP_NUMLOCK &trans      &trans      &trans      &bootloader
+                &kp KP_EQUAL    &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_PLUS        &kp KP_NUMLOCK &trans      &kp COLON   &trans      &bootloader
                 &kp KP_MULTIPLY &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_MINUS       &kp RALT       &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHIFT
                 &kp KP_N0       &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_DIVIDE      &kp BSPC       &kp TAB     &kp DOT     &kp K_CMENU &trans
                                             &trans      &trans      &trans             &kp RET        &trans      &trans
